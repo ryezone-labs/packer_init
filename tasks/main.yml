@@ -5,6 +5,7 @@
     user: vagrant
     state: present
   become: yes
+
 - name: Add Vagrant to Sudoers
   lineinfile:
     dest: /etc/sudoers
@@ -13,6 +14,7 @@
     line: '%vagrant ALL=(ALL) NOPASSWD: ALL'
     validate: 'visudo -cf %s'
   become: yes
+
 - name: Disable daily apt unattended updates
   lineinfile:
     dest: /etc/apt/apt.conf.d/10periodic
@@ -20,17 +22,20 @@
     regexp: '^APT::Periodic::Enable "0";'
     line: 'APT::Periodic::Enable "0";'
   become: yes
+
 - name: Update and Upgrade packages
   apt:
     update_cache: yes
     upgrade: full
   become: yes
+
 - name: Install MATE Terminal
   apt:
     name: mate-terminal
     state: latest
   when: packer_init_desktop
   become: yes
+  
 - name: Remove Gnome Terminal
   apt:
     name: gnome-terminal
