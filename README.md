@@ -1,4 +1,4 @@
-ryezone-labs/packer_init
+ryezone_labs/packer_init
 =========
 
 This role contains many of the initialization steps necessary for my vagrant box
