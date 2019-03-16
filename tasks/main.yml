@@ -1,7 +1,7 @@
 ---
 - name: Add Vagrant Insecure Key
   authorized_key:
-    key: "{{packer_init_vagrant_key_uri}}"
+    key: "{{ packer_init_vagrant_key_uri }}"
     user: vagrant
     state: present
   become: yes
@@ -32,10 +32,10 @@
 - name: Install MATE Terminal
   apt:
     name: mate-terminal
-    state: latest
+    state: present
   when: packer_init_desktop
   become: yes
-  
+
 - name: Remove Gnome Terminal
   apt:
     name: gnome-terminal
