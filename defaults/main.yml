@@ -1,0 +1,4 @@
+---
+# defaults file for packer_init
+packer_init_vagrant_key_uri: https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub
+packer_init_desktop: false
